@@ -11,9 +11,9 @@ const NotFound = () => {
         <p style={{ color: '#5E6C84', marginBottom: '32px' }}>
           The page you are looking for does not exist or has been moved.
         </p>
-        <p style={{ color: '#5E6C84', marginBottom: '32px' }}>
+        {/* <p style={{ color: '#5E6C84', marginBottom: '32px' }}>
           찾으시는 페이지가 존재하지 않거나 이동되었습니다.
-        </p>
+        </p> */}
 
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
           <Link

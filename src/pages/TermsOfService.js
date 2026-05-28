@@ -98,7 +98,7 @@ const TermsOfService = () => {
         <p>COREPROCESS strives to maintain high availability of the App, but does not guarantee uninterrupted or error-free service. The App depends on third-party services including Jira Cloud, the Atlassian Forge platform, our database servers, and network connectivity.</p>
         <ul>
           <li>Planned maintenance will be communicated in advance through the Marketplace listing or in-app notifications when reasonably possible.</li>
-          <li>COREPROCESS does not provide a formal Service Level Agreement (SLA) unless otherwise agreed in writing.</li>
+          <li>Support response and resolution targets are described in our <a href="/sla">Service Level Agreement (SLA)</a>. Custom SLA terms for larger deployments may be agreed separately in writing.</li>
           <li>Unplanned outages may occur due to factors beyond our reasonable control.</li>
         </ul>
 

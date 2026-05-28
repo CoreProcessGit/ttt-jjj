@@ -333,7 +333,7 @@ const faqData = [
       },
       {
         q: 'SLA가 있나요?',
-        a: <p>현재 공식 SLA는 제공하지 않습니다. 대규모 도입 시 별도 협의 가능합니다.</p>,
+        a: <p>네. 자세한 내용은 <a href="/sla">Service Level Agreement (SLA)</a> 페이지에서 확인하실 수 있습니다. 대규모 도입 시 별도 협의도 가능합니다.</p>,
       },
     ],
   },
@@ -741,7 +741,7 @@ const faqDataEn = [
       },
       {
         q: 'Is there an SLA?',
-        a: <p>There is no formal SLA at this time. Larger deployments can be discussed separately.</p>,
+        a: <p>Yes. Please see our <a href="/sla">Service Level Agreement (SLA)</a> page for details. Custom terms for larger deployments can also be discussed separately.</p>,
       },
     ],
   },

@@ -11,6 +11,8 @@ import TermsOfService from './pages/TermsOfService';
 import DPA from './pages/DPA';
 import SubProcessors from './pages/SubProcessors';
 import SecurityPolicy from './pages/SecurityPolicy';
+import SLA from './pages/SLA';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
         <Route path="/dpa" element={<DPA />} />
         <Route path="/sub-processors" element={<SubProcessors />} />
         <Route path="/security-policy" element={<SecurityPolicy />} />
+        <Route path="/sla" element={<SLA />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

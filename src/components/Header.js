@@ -24,7 +24,7 @@ const Header = () => {
         <div className={`nav-links${menuOpen ? ' show' : ''}`}>
           <Link to="/" className={isActive('/')}>Home</Link>
           <Link to="/support" className={isActive('/support')}>Support</Link>
-          <a href="https://marketplace.atlassian.com" className="btn-nav" target="_blank" rel="noopener noreferrer">Marketplace</a>
+          <a href="https://marketplace.atlassian.com/apps/348222537" className="btn-nav" target="_blank" rel="noopener noreferrer">Marketplace</a>
         </div>
       </nav>
       {menuOpen && <div className="menu-overlay" onClick={() => setMenuOpen(false)} />}

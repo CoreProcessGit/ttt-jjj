@@ -386,7 +386,7 @@ const Home = () => {
               T-CAFE provides everything your QA team needs.
             </p>
             <div className="hero-actions animate">
-              <a href="https://marketplace.atlassian.com" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              <a href="https://marketplace.atlassian.com/apps/348222537" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
                 Get Started
               </a>
               <a href="#features" className="btn btn-outline">
@@ -583,7 +583,7 @@ const Home = () => {
           <h2>Ready to streamline<br/>your testing?</h2>
           <p>Install T-CAFE and start managing test cases in Jira today.</p>
           <div className="cta-actions">
-            <a href="https://marketplace.atlassian.com" className="btn btn-white" target="_blank" rel="noopener noreferrer">Get it on Marketplace</a>
+            <a href="https://marketplace.atlassian.com/apps/348222537" className="btn btn-white" target="_blank" rel="noopener noreferrer">Get it on Marketplace</a>
             <Link to="/support" className="btn btn-outline-light">View Documentation</Link>
           </div>
           <div className="cta-trust">

@@ -9,3 +9,5 @@ Allow: /
 
 User-agent: *
 Disallow: /
+
+Sitemap: https://info.t-cafe.com/sitemap.xml

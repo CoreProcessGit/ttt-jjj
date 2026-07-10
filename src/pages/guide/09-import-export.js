@@ -6,9 +6,9 @@ import img02 from '../../assets/user_guide/09-importexport/02.png'
 
 const ImportExport = () => (
   <article className="guide-article">
-    <h1>09. Import / Export</h1>
+    <h1>09. Import / Export — 테스트 케이스 엑셀 가져오기 · 내보내기</h1>
     <p className="guide-lead">
-      T-CAFE는 테스트 케이스를 외부 형식과 주고받는 기능을 제공합니다. 다른 도구에서 마이그레이션하거나, 백업 또는 외부 보고에 활용할 수 있습니다.
+      T-CAFE는 테스트 케이스를 엑셀(Excel), CSV, JSON 형식으로 주고받는 기능을 제공합니다. 기존에 엑셀로 관리하던 테스트 케이스를 그대로 가져올 수 있고, 다른 테스트 관리 도구에서 마이그레이션하거나 백업·외부 보고에 활용할 때도 사용합니다.
     </p>
 
     <hr />
@@ -379,9 +379,9 @@ PROJ-1 | 2 | Type | username | Field filled`}</code></pre>
 
 const ImportExportEn = () => (
   <article className="guide-article">
-    <h1>09. Import / Export</h1>
+    <h1>09. Import / Export — Test Cases in Excel, CSV, JSON</h1>
     <p className="guide-lead">
-      T-CAFE provides features for exchanging test cases with external formats. Use it to migrate from other tools, for backups, or for external reporting.
+      T-CAFE lets you exchange test cases in Excel, CSV, and JSON formats. Import test cases you already manage in Excel as-is, migrate from other test management tools, or use it for backups and external reporting.
     </p>
 
     <hr />

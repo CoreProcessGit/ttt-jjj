@@ -38,8 +38,8 @@ export const guideCategories = [
       { slug: 'test-cases', titles: { ko: '05. 테스트 케이스 기본 사용법', en: '05. Test Case Basics' }, components: TestCases },
       { slug: 'test-cases-folders', titles: { ko: '06. 폴더 관리', en: '06. Folder Management' }, components: Folders },
       { slug: 'test-cases-steps', titles: { ko: '07. 테스트 스텝 작성', en: '07. Writing Test Steps' }, components: Steps },
-      { slug: 'factor-combination', titles: { ko: '08. Factor Combination', en: '08. Factor Combination' }, components: FactorCombination },
-      { slug: 'import-export', titles: { ko: '09. Import / Export', en: '09. Import / Export' }, components: ImportExport },
+      { slug: 'factor-combination', titles: { ko: '08. Factor Combination', en: '08. Factor Combination' }, seoTitle: { ko: '페어와이즈 조합 테스트 자동 생성', en: 'Pairwise & Combinatorial Test Generation' }, description: { ko: '브라우저·OS·언어 등 여러 인자의 조합을 자동 생성합니다. 페어와이즈(Pairwise) 알고리즘으로 18개 조합을 9개로 줄이는 방법.', en: 'Automatically generate combinations of factors like browser, OS, and language. How the Pairwise algorithm cuts 18 combinations down to 9.' }, components: FactorCombination },
+      { slug: 'import-export', titles: { ko: '09. Import / Export', en: '09. Import / Export' }, seoTitle: { ko: '테스트 케이스 엑셀·CSV 가져오기 / 내보내기', en: 'Import / Export Test Cases — Excel, CSV, JSON' }, description: { ko: '테스트 케이스를 엑셀·CSV·JSON으로 가져오기/내보내기. 다른 도구에서 마이그레이션하거나 백업·외부 보고에 활용하는 방법.', en: 'Import and export test cases as Excel, CSV, or JSON. Migrate from other tools, back up your data, or share for external reporting.' }, components: ImportExport },
     ],
   },
   {
@@ -78,6 +78,26 @@ export const guideCategories = [
 export const guideMap = Object.fromEntries(
   guideCategories.flatMap((c) => c.items.map((i) => [i.slug, i]))
 );
+
+export const BRAND_SUFFIX = 'T-CAFE for Jira';
+
+export const getGuideMetaTitle = (slug, lang) => {
+  const g = guideMap[slug];
+  if (!g) return BRAND_SUFFIX;
+  const raw = (g.seoTitle && g.seoTitle[lang]) || g.titles[lang] || g.titles[DEFAULT_LANG];
+  const clean = raw.replace(/^\d+\.\s*/, '');
+  return `${clean} | ${BRAND_SUFFIX}`;
+};
+
+export const getGuideMetaDescription = (slug, lang) => {
+  const g = guideMap[slug];
+  if (!g) return '';
+  if (g.description && g.description[lang]) return g.description[lang];
+  const title = (g.titles[lang] || g.titles[DEFAULT_LANG]).replace(/^\d+\.\s*/, '');
+  return lang === 'ko'
+    ? `${title} — T-CAFE for Jira 사용 가이드.`
+    : `${title} — T-CAFE for Jira user guide.`;
+};
 
 export const DEFAULT_GUIDE_SLUG = 'getting-started';
 

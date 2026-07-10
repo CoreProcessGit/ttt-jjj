@@ -8,9 +8,9 @@ import img04 from '../../assets/user_guide/08-factor/04.png';
 
 const FactorCombination = () => (
   <article className="guide-article">
-    <h1>08. Factor Combination</h1>
+    <h1>08. Factor Combination — 페어와이즈 조합 테스트 자동 생성</h1>
     <p className="guide-lead">
-      Factor Combination은 T-CAFE만의 차별화 기능입니다. 여러 변수(Factor)의 조합을 자동으로 생성해 테스트 케이스를 대량 작성할 수 있습니다.
+      Factor Combination은 T-CAFE만의 차별화 기능으로, 흔히 페어와이즈(Pairwise) 테스트 또는 조합 테스트라고 부르는 기법입니다. 여러 변수(Factor)의 조합을 자동으로 생성해 테스트 케이스를 대량 작성할 수 있으며, 마이크로소프트 PICT 같은 도구가 명령줄에서 하던 계산을 브라우저에서 바로 처리합니다.
     </p>
 
     <hr />
@@ -443,9 +443,9 @@ const FactorCombination = () => (
 
 const FactorCombinationEn = () => (
   <article className="guide-article">
-    <h1>08. Factor Combination</h1>
+    <h1>08. Factor Combination — Pairwise Combinatorial Test Generation</h1>
     <p className="guide-lead">
-      Factor Combination is T-CAFE's distinctive feature. Automatically generate combinations of multiple variables (Factors) to bulk-create test cases.
+      Factor Combination is T-CAFE's distinctive feature — what's commonly called pairwise or combinatorial testing. Automatically generate combinations of multiple variables (Factors) to bulk-create test cases, running the same computation that command-line tools like Microsoft PICT perform, right in your browser.
     </p>
 
     <hr />

@@ -11,3 +11,5 @@ User-agent: *
 Disallow: /
 
 Sitemap: https://info.t-cafe.com/sitemap.xml
+
+#DaumWebMasterTool:a9cff27d836b60155488c5c88094a03eaa147a9c2daa77a4eb19642c76e459d4:QM+TaEJ7Yp5O7wsVEQ8/lQ==

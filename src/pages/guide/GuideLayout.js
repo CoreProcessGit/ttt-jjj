@@ -3,27 +3,13 @@ import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   guideCategories,
   guideMap,
-  getGuideMetaTitle,
-  getGuideMetaDescription,
   DEFAULT_GUIDE_SLUG,
   SUPPORTED_LANGS,
   DEFAULT_LANG,
   LAYOUT_TEXT,
 } from './guidesIndex';
+import { KO_PREFIX, langFromPath, pathForLang } from '../../lib/langPath';
 import '../../styles/guide.css';
-
-const LANG_STORAGE_KEY = 'guideLang';
-
-const readInitialLang = (search) => {
-  try {
-    const params = new URLSearchParams(search);
-    const urlLang = params.get('lang');
-    if (urlLang && SUPPORTED_LANGS.includes(urlLang)) return urlLang;
-    const stored = typeof window !== 'undefined' ? window.localStorage.getItem(LANG_STORAGE_KEY) : null;
-    if (stored && SUPPORTED_LANGS.includes(stored)) return stored;
-  } catch (e) { /* ignore */ }
-  return DEFAULT_LANG;
-};
 
 const GuideLayout = () => {
   const params = useParams();
@@ -32,40 +18,26 @@ const GuideLayout = () => {
   const slug = params.slug || DEFAULT_GUIDE_SLUG;
   const guide = guideMap[slug];
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
-  const [lang, setLang] = useState(() => readInitialLang(location.search));
+  const lang = langFromPath(location.pathname);
 
   useEffect(() => {
     setSidebarCollapsed(true);
   }, [location.pathname]);
 
   useEffect(() => {
-    document.title = getGuideMetaTitle(slug, lang);
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
+    const legacy = new URLSearchParams(location.search).get('lang');
+    if (!legacy || !SUPPORTED_LANGS.includes(legacy)) return;
+    if (legacy === lang) {
+      navigate({ pathname: location.pathname }, { replace: true });
+      return;
     }
-    meta.setAttribute('content', getGuideMetaDescription(slug, lang));
-  }, [slug, lang]);
-
-  useEffect(() => {
-    const sp = new URLSearchParams(location.search);
-    if (!sp.get('lang')) {
-      sp.set('lang', lang);
-      navigate({ pathname: location.pathname, search: `?${sp.toString()}` }, { replace: true });
-    }
-  }, []);
+    navigate({ pathname: pathForLang(location.pathname, legacy) }, { replace: true });
+  }, [lang, location.pathname, location.search, navigate]);
 
   const switchLang = useCallback((next) => {
     if (!SUPPORTED_LANGS.includes(next) || next === lang) return;
-    setLang(next);
-    try { window.localStorage.setItem(LANG_STORAGE_KEY, next); } catch (e) { }
-    const sp = new URLSearchParams(location.search);
-    sp.set('lang', next);
-    navigate({ pathname: location.pathname, search: `?${sp.toString()}` }, { replace: true });
-  }, [lang, location.pathname, location.search, navigate]);
+    navigate({ pathname: pathForLang(location.pathname, next) });
+  }, [lang, location.pathname, navigate]);
 
   const t = (key) => (LAYOUT_TEXT[key] && LAYOUT_TEXT[key][lang]) || (LAYOUT_TEXT[key] && LAYOUT_TEXT[key][DEFAULT_LANG]) || key;
   const pickTitle = (titles) => (titles && titles[lang]) || (titles && titles[DEFAULT_LANG]) || '';
@@ -74,11 +46,8 @@ const GuideLayout = () => {
     ? (guide.components[lang] || guide.components[DEFAULT_LANG])
     : null;
 
-  const buildLink = (s) => {
-    const params = new URLSearchParams(location.search);
-    params.set('lang', lang);
-    return `/support/guide/${s}?${params.toString()}`;
-  };
+  const buildLink = (s) =>
+    `${lang === 'ko' ? KO_PREFIX : ''}/support/guide/${s}`;
 
   return (
     <div className="guide-page">

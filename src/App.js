@@ -26,6 +26,8 @@ function App() {
         <Route path="/support" element={<Support />} />
         <Route path="/support/guide" element={<GuideLayout />} />
         <Route path="/support/guide/:slug" element={<GuideLayout />} />
+        <Route path="/ko/support/guide" element={<GuideLayout />} />
+        <Route path="/ko/support/guide/:slug" element={<GuideLayout />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/dpa" element={<DPA />} />

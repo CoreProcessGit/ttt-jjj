@@ -3,8 +3,6 @@ import { useParams, Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   guideCategories,
   guideMap,
-  getGuideMetaTitle,
-  getGuideMetaDescription,
   DEFAULT_GUIDE_SLUG,
   SUPPORTED_LANGS,
   DEFAULT_LANG,
@@ -25,18 +23,6 @@ const GuideLayout = () => {
   useEffect(() => {
     setSidebarCollapsed(true);
   }, [location.pathname]);
-
-  useEffect(() => {
-    document.title = getGuideMetaTitle(slug, lang);
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', getGuideMetaDescription(slug, lang));
-  }, [slug, lang]);
 
   useEffect(() => {
     const legacy = new URLSearchParams(location.search).get('lang');

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ScrollToTop from './components/ScrollToTop';
 import Canonical from './components/Canonical';
+import PageMeta from './components/PageMeta';
 import Support from './pages/Support';
 import GuideLayout from './pages/guide/GuideLayout';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -20,6 +21,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
       <Canonical />
+      <PageMeta />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

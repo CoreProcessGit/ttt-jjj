@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CB49CYV8V4"></script>
+    <!-- Google tag (gtag.js) — 운영 도메인에서만 로드 -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-CB49CYV8V4');
+      (function () {
+        var ALLOWED = ['info.t-cafe.com', 'design.t-cafe.com'];
+        if (ALLOWED.indexOf(location.hostname) === -1) return;
+
+        var GA_ID = 'G-CB49CYV8V4';
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID);
+      })();
     </script>
 
     <meta charset="utf-8" />
